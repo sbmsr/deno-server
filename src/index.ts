@@ -6,6 +6,10 @@ const app = new Application();
 app.use((ctx, next) => {
   ctx.response.headers.set("Access-Control-Allow-Origin", "https://jobsimulator-dev.vercel.app");
   ctx.response.headers.set("Access-Control-Allow-Credentials", "true");
+  ctx.response.headers.set(
+    "Access-Control-Allow-Headers",
+    "cookie, accept-encoding, referer, sec-fetch-dest, sec-fetch-mode, sec-fetch-site, sec-gpc, user-agent"
+  );
   return next();
 });
 
