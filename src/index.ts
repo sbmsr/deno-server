@@ -11,6 +11,7 @@ app.use((ctx, next) => {
     "cookie, accept-encoding, referer, sec-fetch-dest, sec-fetch-mode, sec-fetch-site, sec-gpc, user-agent"
   );
   ctx.response.headers.set("referrer", "no-referrer");
+  ctx.response.headers.set("Set-Cookie", "testing=123");
   return next();
 });
 
