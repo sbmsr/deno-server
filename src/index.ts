@@ -10,6 +10,7 @@ app.use((ctx, next) => {
     "Access-Control-Allow-Headers",
     "cookie, accept-encoding, referer, sec-fetch-dest, sec-fetch-mode, sec-fetch-site, sec-gpc, user-agent"
   );
+  ctx.response.headers.set("referrer", "no-referrer");
   return next();
 });
 
