@@ -12,7 +12,7 @@ app.use((ctx, next) => {
     "Cookie, Accept-Encoding, Referer, User-Agent, Accept, Content-Type"
   );
 
-  // ctx.response.headers.set("Set-Cookie", "testing=123; SameSite=None; Secure;");
+  ctx.response.headers.set("Set-Cookie", "testing=123; SameSite=None; Secure;");
   return next();
 });
 
