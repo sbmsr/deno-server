@@ -6,11 +6,12 @@ const app = new Application();
 app.use((ctx, next) => {
   ctx.response.headers.set("Access-Control-Allow-Origin", "https://jobsimulator-dev.vercel.app");
   ctx.response.headers.set("Access-Control-Allow-Credentials", "true");
-  // ctx.response.headers.set("Access-Control-Allow-Methods", "GET, POST, PUT, PATCH, DELETE, HEAD, OPTIONS");
-  // ctx.response.headers.set(
-  //   "Access-Control-Allow-Headers",
-  //   "Cookie, Accept-Encoding, Referer, User-Agent, Accept, Content-Type"
-  // );
+  ctx.response.headers.set("Access-Control-Allow-Methods", "GET, POST, PUT, PATCH, DELETE, HEAD, OPTIONS");
+  ctx.response.headers.set(
+    "Access-Control-Allow-Headers",
+    "X-PINGOTHER, Content-Type"
+    // "Cookie, Accept-Encoding, Referer, User-Agent, Accept, Content-Type"
+  );
 
   // ctx.response.headers.set("Set-Cookie", "testing=123; SameSite=None; Secure;");
   return next();
