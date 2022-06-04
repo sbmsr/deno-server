@@ -1,11 +1,20 @@
-import { serve } from "https://deno.land/std@0.142.0/http/server.ts";
-import { getCookies } from "https://deno.land/std/http/mod.ts";
+// import { getCookies } from "https://deno.land/std/http/mod.ts";
+// import { Application } from "https://deno.land/x/oak/mod.ts";
 
-const port = parseInt(Deno.env.get("PORT") ?? "8000");
+// const app = new Application();
 
-const handler = (request: Request): Response => {
-  return new Response(JSON.stringify(getCookies(request.headers)), { status: 200 });
-};
+// app.use(({ request, response }) => {
+//   response.body = JSON.stringify(getCookies(request.headers));
+// });
 
-console.log(`HTTP webserver running. Access it at: http://localhost:8080/`);
-await serve(handler, { port });
+// const port = parseInt(Deno.env.get("PORT") ?? "8000");
+// await app.listen({ port: port });
+import { Application } from "https://deno.land/x/oak/mod.ts";
+
+const app = new Application();
+
+app.use((ctx) => {
+  ctx.response.body = "Hello World!";
+});
+
+await app.listen({ port: 8000 });
