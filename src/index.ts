@@ -3,6 +3,11 @@ import { Application } from "https://deno.land/x/oak/mod.ts";
 
 const app = new Application();
 
+app.use((ctx, next) => {
+  ctx.response.headers.set("Access-Control-Allow-Origin", "https://jobsimulator-dev.vercel.app");
+  return next();
+});
+
 app.use(({ request, response }) => {
   response.body = JSON.stringify(getCookies(request.headers));
 });
